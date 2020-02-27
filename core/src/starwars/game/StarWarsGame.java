@@ -2,7 +2,7 @@ package starwars.game;
 
 
 import com.badlogic.gdx.Game;
-import starwars.game.Base.Screen.MenuScreen;
+import starwars.game.base.Screen.MenuScreen;
 
 public class StarWarsGame extends Game {
 
