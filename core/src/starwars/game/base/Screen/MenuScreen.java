@@ -7,43 +7,44 @@ import com.badlogic.gdx.math.Vector2;
 
 import starwars.game.base.BaseScreen;
 import starwars.game.base.Screen.sprite.Background;
+import starwars.game.base.Screen.sprite.Logo;
 import starwars.game.math.Rect;
 
 public class MenuScreen extends BaseScreen {
 
-    private Texture img;
     private Texture bg;
-
-    private Vector2 pos;
-
+    private Texture lg;
     private Background background;
+    private Logo logo;
 
 
 
     @Override
     public void show() {
         super.show();
-        img = new Texture("images.jpg");
+        lg = new Texture("images.jpg");
         bg = new Texture("bg.jpg");
-        pos = new Vector2(0,0);
         background = new Background(bg);
+        logo = new Logo(lg);
     }
 
     @Override
+
     public void render(float delta) {
         super.render(delta);
         Gdx.gl.glClearColor(0, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        logo.update(delta);
         batch.begin();
+        logo.draw(batch);
         background.draw(batch);
-        batch.draw(img, pos.x, pos.y, 0.5f, 0.5f);
         batch.end();
     }
 
     @Override
     public void dispose() {
         super.dispose();
-        img.dispose();
+        lg.dispose();
         bg.dispose();
     }
 
@@ -51,11 +52,14 @@ public class MenuScreen extends BaseScreen {
     public void resize(Rect worldBounds) {
         super.resize(worldBounds);
         background.resize(worldBounds);
+        logo.resize(worldBounds);
     }
 
     @Override
     public boolean touchDown(Vector2 touch, int pointer, int button) {
-        return super.touchDown(touch, pointer, button);
 
+        logo.touchDown(touch, pointer, button);
+
+        return false;
     }
 }
