@@ -24,7 +24,6 @@ public class Ship extends Sprite {
         v = new Vector2();
         buf = new Vector2();
         end = new Vector2();
-
     }
 
     @Override
