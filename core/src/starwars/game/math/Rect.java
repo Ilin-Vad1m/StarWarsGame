@@ -33,6 +33,10 @@ public class Rect {
         return pos.y + halfHeight;
     }
 
+    public float getTopPosY(){
+        return pos.y + getHeight();
+    }
+
     public float getRight() {
         return pos.x + halfWidth;
     }
@@ -40,6 +44,11 @@ public class Rect {
     public float getBottom() {
         return pos.y - halfHeight;
     }
+
+    public float getBottomPosY(){
+        return pos.y;
+    }
+
 
     public float getHalfWidth() {
         return halfWidth;
