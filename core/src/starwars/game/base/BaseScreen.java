@@ -16,7 +16,7 @@ public class BaseScreen implements Screen, InputProcessor {
     protected SpriteBatch batch;
 
     private Rect screenBounds;
-    private Rect worldBounds;
+    protected Rect worldBounds;
     private Rect glBounds;
 
     private Vector2 touch;
@@ -114,26 +114,23 @@ public class BaseScreen implements Screen, InputProcessor {
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        touch.set(screenX, screenBounds.getHeight() - screenY).mul(screenToWorld);
         touchUp(touch, pointer, button);
         return false;
     }
 
     public boolean touchUp(Vector2 touch, int pointer, int button) {
-        System.out.println("touchUp touchX =" + touch.x + "touchUp touchY = " + touch.y);
+
         return false;
     }
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        System.out.println("touchDragged touchX =" + touch.x + "touchDragged touchY = " + touch.y);
         touch.set(screenX, screenBounds.getHeight() - screenY).mul(screenToWorld);
         touchDragged(touch, pointer);
         return false;
     }
 
     public boolean touchDragged(Vector2 touch, int pointer) {
-        System.out.println("touchDragged touchX =" + touch.x + "touchDragged touchY = " + touch.y);
         return false;
     }
 
